@@ -1,0 +1,18 @@
+# Use the official python windows image as a base
+FROM python:3-windowsservercore
+
+# Maintainer
+LABEL maintainer "patrick.bleek@docker.com"
+
+# Install flask
+RUN ["pip", install flask"]
+
+# Copy files required for the app to run
+COPY ["app.py", "c:/usr/src/app/"]
+COPY ["templates/index.html", "c:/usr/src/app/templates/"]
+
+# Expose the app on Flask default (5000)
+EXPOSE 5000
+
+# Run the application
+CMD ["python", "c:/usr/src/app/app.py"]
