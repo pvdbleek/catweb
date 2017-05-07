@@ -8,7 +8,8 @@ MAINTAINER steven.thwaites@docker.com
 RUN apk add --update py2-pip
 
 # Upgrade pip
-RUN pip install --upgrade pip
+#RUN pip install --upgrade pip
+RUN pip install pip
 
 # Install Python modules needed by the Python app
 COPY requirements.txt /usr/src/app/
